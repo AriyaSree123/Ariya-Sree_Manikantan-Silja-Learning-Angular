@@ -10,4 +10,6 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'AriyaSreeManikantanSilja-Learning-Angular';
+  id: string = 'W0849647';
+  department : string = 'Computer Programming';
 }
