@@ -1,7 +1,15 @@
+<h2>{{title}}</h2>
+<div class="container">
+  <div>
+    <div *ngFor="let FoodProduction of FoodList" class="food-card">
+      <div *ngIf="FoodList[6]" class="foods">
+        <p>ProductId : {{FoodProduction.ProductId}}</p>
+        <p>Brand : {{FoodProduction.Brand}}</p>
+        <p>ItemName: {{FoodProduction.ItemName}}</p>
+        <p>ExpiryDate : {{FoodProduction.ExpiryDate}}</p>
+        <p>Barcode? : {{FoodProduction.Barcode}}</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<html>
-<body>
-<h1>{{id}}</h1>
-<h3>{{department}}</h3>
-</body>
-</html>
