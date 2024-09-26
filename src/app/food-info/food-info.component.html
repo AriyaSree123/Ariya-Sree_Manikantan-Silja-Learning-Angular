@@ -1,1 +1,8 @@
-<p>food-info works!</p>
+<div *ngIf="food" class="food-info">
+  <h2>Food Information</h2>
+  <p><strong>Product ID:</strong> {{food.ProductId}}</p>
+  <p><strong>Brand:</strong> {{food.Brand}}</p>
+  <p><strong>Item Name:</strong> {{food.ItemName}}</p>
+  <p><strong>Expiry Date:</strong> {{food.ExpiryDate}}</p>
+  <p><strong>Barcode:</strong> {{food.Barcode}}</p>
+</div>

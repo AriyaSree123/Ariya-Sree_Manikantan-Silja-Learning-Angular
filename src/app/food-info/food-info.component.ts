@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {FoodProduction} from "../models/food-production";
 
 @Component({
   selector: 'app-food-info',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './food-info.component.css'
 })
 export class FoodInfoComponent {
+  // takes inputs from user
+  @Input() food?: FoodProduction;
 
 }
