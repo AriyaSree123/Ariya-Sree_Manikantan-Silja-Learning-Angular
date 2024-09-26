@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import {FoodProduction} from "../models/food-production";
+import {FoodInfoComponent} from "../food-info/food-info.component";
 
 @Component({
   selector: 'app-food-list',
   standalone: true,
-  imports: [],
+  imports: [
+    FoodInfoComponent
+  ],
   templateUrl: './food-list.component.html',
   styleUrl: './food-list.component.css'
 })
@@ -15,6 +18,7 @@ export class FoodListComponent {
     {ProductId: 2, Brand: "DoubleHourse", ItemName: "Iddiyappam", ExpiryDate: "01-11-2025", Barcode: 1235},
     {ProductId: 3, Brand: "Shah", ItemName: "ChilliPowder", ExpiryDate: "03-03-2025", Barcode: 1236},
     {ProductId: 4, Brand: "SK", ItemName: "Salt", ExpiryDate: "05-09-2025", Barcode: 1237}
+
   ];
 
 }
