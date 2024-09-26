@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import {FoodProduction} from "../models/food-production";
 import {FoodInfoComponent} from "../food-info/food-info.component";
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-food-list',
   standalone: true,
   imports: [
-    FoodInfoComponent
+    FoodInfoComponent,
+    NgForOf
   ],
   templateUrl: './food-list.component.html',
   styleUrl: './food-list.component.css'

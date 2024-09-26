@@ -8,3 +8,9 @@
 h2{
   font-size: 20px;
 }
+tr:nth-child(even){
+  background-color:lightblue;
+}
+tr:nth-child(odd){
+  background-color: aliceblue;
+}
