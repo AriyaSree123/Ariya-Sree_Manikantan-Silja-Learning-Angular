@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FoodProduction} from "../models/food-production";
 import {FoodInfoComponent} from "../food-info/food-info.component";
 import {NgForOf} from "@angular/common";
+import {FoodService} from "../services/food.service";
 
 @Component({
   selector: 'app-food-list',
@@ -15,5 +16,9 @@ import {NgForOf} from "@angular/common";
 })
 export class FoodListComponent {
   displayedlists:string[]= ['ProductId','Brand','ItemName','ExpiryDate','Barcode'];
+
+  constructor (private foodService: FoodService){
+
+  }
 
 }
