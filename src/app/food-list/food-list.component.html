@@ -1,16 +1,4 @@
-<div>
-  <table>
-    <tbody>
-    <tr *ngFor="let food of FoodList">
 
-      <td>{{food.ProductId}}</td>
-      <td>{{food.Brand}}</td>
-      <td>{{food.ItemName}}</td>
-      <td>{{food.ExpiryDate}}</td>
-      <td>{{food.Barcode}}</td>
-
-    </tr>
-    </tbody>
-  </table>
-  <app-food-info></app-food-info>
+  <div *ngFor = "let foodItem of foodList">
+  <app-food-info [food] = "foodItem" ></app-food-info>
 </div>

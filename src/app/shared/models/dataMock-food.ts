@@ -1,4 +1,4 @@
-import {FoodProduction} from "../../models/food-production";
+import {FoodProduction} from "./food-production";
 
 export const FoodList : FoodProduction[] = [
   {ProductId: 1, Brand: "Nirapara", ItemName: "Rice", ExpiryDate: "10-03-2027", Barcode: 1234},

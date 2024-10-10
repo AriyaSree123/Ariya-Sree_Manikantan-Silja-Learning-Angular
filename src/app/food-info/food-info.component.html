@@ -1,10 +1,25 @@
-<div *ngIf="food" class="food-info">
+<div *ngIf="food" class="food-info-container">
 
-  <h2>DataMockFood Information</h2>
-  <p><strong>Product ID:</strong> {{food.ProductId}}</p>
-  <p><strong>Brand:</strong> {{food.Brand}}</p>
-  <p><strong>Item Name:</strong> {{food.ItemName}}</p>
-  <p><strong>Expiry Date:</strong> {{food.ExpiryDate}}</p>
-  <p><strong>Barcode:</strong> {{food.Barcode}}</p>
+  <h2 class="food-title">DataMockFood Information</h2>
+
+  <div class="food-detail">
+    <p><strong>Product ID:</strong> {{food.ProductId}}</p>
+  </div>
+
+  <div class="food-detail">
+    <p><strong>Brand:</strong> {{food.Brand}}</p>
+  </div>
+
+  <div class="food-detail">
+    <p><strong>Item Name:</strong> {{food.ItemName}}</p>
+  </div>
+
+  <div class="food-detail">
+    <p><strong>Expiry Date:</strong> {{food.ExpiryDate}}</p>
+  </div>
+
+  <div class="food-detail">
+    <p><strong>Barcode:</strong> {{food.Barcode}}</p>
+  </div>
 
 </div>

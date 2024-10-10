@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {FoodProduction} from "../models/food-production";
+import {Component, Input, OnInit} from '@angular/core';
+import {FoodProduction} from "../shared/models/food-production";
 import {FoodInfoComponent} from "../food-info/food-info.component";
 import {NgForOf} from "@angular/common";
 import {FoodService} from "../services/food.service";
@@ -14,11 +14,17 @@ import {FoodService} from "../services/food.service";
   templateUrl: './food-list.component.html',
   styleUrl: './food-list.component.css'
 })
-export class FoodListComponent {
-  displayedlists:string[]= ['ProductId','Brand','ItemName','ExpiryDate','Barcode'];
+export class FoodListComponent implements OnInit{
+  foodList: FoodProduction [] = [];
+  @Input() food!: FoodProduction;
 
   constructor (private foodService: FoodService){
+  }
 
+  ngOnInit(): void {
+    this.foodService.getFoods().subscribe({
+      next: (data: FoodProduction[]) => this.foodList = data
+    })
   }
 
 }

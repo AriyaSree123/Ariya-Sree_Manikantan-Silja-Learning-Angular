@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {FoodProduction} from "../models/food-production";
+import {FoodProduction} from "../shared/models/food-production";
 import {NgIf} from "@angular/common";
 
 @Component({

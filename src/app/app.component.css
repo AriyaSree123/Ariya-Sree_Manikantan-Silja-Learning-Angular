@@ -1,0 +1,17 @@
+.food-info{
+  border: 2px solid #fff;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: black
+;
+}
+
+h2{
+  font-size: 20px;
+}
+tr:nth-child(even){
+  background-color:lightblue;
+}
+tr:nth-child(odd){
+  background-color: aliceblue;
+}

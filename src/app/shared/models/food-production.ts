@@ -4,5 +4,4 @@ export interface FoodProduction {
   ItemName: string;
   ExpiryDate: string;
   Barcode?: number;
-
 }
