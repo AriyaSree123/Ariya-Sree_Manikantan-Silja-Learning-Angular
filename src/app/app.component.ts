@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {FoodProduction} from "./shared/models/food-production";
 import {FoodListComponent} from "./food-list/food-list.component";
 import {FoodList} from "./shared/models/dataMock-food";
@@ -11,7 +11,7 @@ import {NgForOf} from "@angular/common";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FoodListComponent, FoodInfoComponent, NgForOf],
+  imports: [RouterOutlet, FoodListComponent, FoodInfoComponent, NgForOf, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
