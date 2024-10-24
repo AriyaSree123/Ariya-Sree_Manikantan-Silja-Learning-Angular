@@ -1,8 +1,17 @@
-<h2>{{title}}</h2>
+<div class="nav-bar">
 <nav>
+  <a routerLink ="/food" routerLinkActive ="active">Food List</a>
+  <a routerLink ="/modify-list-item" routerLinkActive ="active">Modify Food Item</a>
+
   <!-- TODO put in nav bars, use routerLink in your a tag-->
 </nav>
+</div>
 
-<app-food-list [food] = "newFoodList"></app-food-list>
+<div class="app-container">
+  <h1>{{title}}</h1>
+  <router-outlet></router-outlet>
+</div>
+
+
 
 
