@@ -1,4 +1,32 @@
-
-  <div *ngFor = "let foodItem of foodList">
-  <app-food-info [food] = "foodItem" ></app-food-info>
+<div class="container">
+  <h2>Food List</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>Product ID</th>
+      <th>Brand</th>
+      <th>ItemName</th>
+      <th>ExpiryDate</th>
+      <th>Barcode</th>
+      <th>image</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let food of FoodList" [routerLink]="['/foods',food.ProductId]">
+      <td>{{food.ProductId}}</td>
+      <td>{{food.Brand}}</td>
+      <td>{{food.ItemName}}</td>
+      <td>{{food.ExpiryDate}}</td>
+      <td>{{food.Barcode}}</td>
+      <td><img ngSrc="../../Images" alt="{{food.ItemName}}" width="50" height="50"/> </td>
+      <td>
+        <button (click)="onEdit(food.ProductId)">Edit</button>
+        <button (click)="onDelete(food.ProductId)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
+
+
+
