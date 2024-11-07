@@ -38,5 +38,7 @@ export class FoodService {
     const varities = this.foods.find(Food => Food.ProductId === foodId);
     return of(varities);
   }
-
+  generateNewID():number{
+    return this.foods.length > 0 ? Math.max(...this.foods.map(food => food.ProductId)) + 1 : 1;
+  }
 }

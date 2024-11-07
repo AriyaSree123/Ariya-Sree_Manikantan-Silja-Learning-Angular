@@ -4,7 +4,8 @@ import {FoodInfoComponent} from "../food-info/food-info.component";
 import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {FoodService} from "../services/food.service";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
-import {FoodList} from "../shared/models/dataMock-food";
+
+
 
 @Component({
   selector: 'app-food-list',
@@ -21,36 +22,52 @@ import {FoodList} from "../shared/models/dataMock-food";
 })
 export class FoodListComponent implements OnInit{
   foodList: FoodProduction [] = [];
-  @Input() food!: FoodProduction;
+  error: string| null = null;
+  //@Input() food!: FoodProduction;
 
   constructor (private foodService: FoodService,
-               private route: ActivatedRoute,
                private router: Router){
   }
 
-  ngOnInit(): void {
+
+
+  ngOnInit(){
     this.foodService.getFoods().subscribe({
-      next: (data: FoodProduction[]) => this.foodList = data
-    })
+      next: (data: FoodProduction[]) => {
+        this.foodList = data;
+        this.error = null;
+      },
+      error: err => {
+        this.error = 'Error fetching food';
+        console.error("Error fetching foods", err);
+      },
+      complete: () => console.log("Food data fetch completed")
+
+    });
   }
 
   onEdit(ProductId: number){
-    this.router.navigate(['/modify-list-item']);
+    this.router.navigate(['/foods', ProductId]);
   }
 
-  selectedFood?:FoodProduction;
+ /* selectedFood?:FoodProduction;
   selectFood(food:FoodProduction):void{
     this.selectedFood = food;
   }
-
+*/
   onDelete(ProductId: number){
-    if(this.selectedFood){
-      this.foodService.deleteFood(this.selectedFood.ProductId);
-      this.foodList = this.foodList.filter(food=> food.ProductId !== this.selectedFood?.ProductId)
-      this.router.navigate(['/foods']);
-    }
+    this.foodService.deleteFood(ProductId).subscribe({
+      next:(updateFoodList:FoodProduction[])=>{
+        this.foodList=updateFoodList;
+        this.error=null;
+      },
+      error: err => {
+        this.error='Error Deleting food';
+        console.error("Error deleting food",err);
+      }
+    })
   }
 
-  protected readonly FoodList = FoodList;
+  //protected FoodList = FoodList;
 
 }

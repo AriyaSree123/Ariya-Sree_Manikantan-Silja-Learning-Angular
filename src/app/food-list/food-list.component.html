@@ -12,7 +12,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let food of FoodList" [routerLink]="['/foods',food.ProductId]">
+    <tr *ngFor="let food of foodList" [routerLink]="['/foods',food.ProductId]">
       <td>{{food.ProductId}}</td>
       <td>{{food.Brand}}</td>
       <td>{{food.ItemName}}</td>
@@ -28,5 +28,5 @@
   </table>
 </div>
 
-
+<div *ngIf="error" class="error">{{error}}</div>
 
