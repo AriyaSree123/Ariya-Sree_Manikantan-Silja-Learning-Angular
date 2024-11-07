@@ -1,44 +1,48 @@
 import { Injectable } from '@angular/core';
 import {FoodProduction} from "../shared/models/food-production";
-import {Observable, of} from "rxjs";
+import {catchError, Observable, of, throwError} from "rxjs";
 import {FoodList} from "../shared/models/dataMock-food";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FoodService {
+  private apiUrl = 'api/foods';
   private foods:FoodProduction[] = FoodList;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
   getFoods(): Observable<FoodProduction[]>{
-    return of(FoodList);
+    return this.http.get<FoodProduction[]>(this.apiUrl).pipe(catchError(this.handleError));
 
   }
 
-  addFood(newFood : FoodProduction) : Observable<FoodProduction[]>{
-    this.foods.push(newFood)
-    return of(this.foods);
+  getFoodById(foodId:number):Observable<FoodProduction>{
+    return this.http.get<FoodProduction>(`${this.apiUrl}/${foodId}`).pipe(catchError(this.handleError));
   }
 
-  updateFood(updatedfood :FoodProduction) : Observable<FoodProduction[]>{
-    const index = this.foods.findIndex(Food => Food.ProductId === updatedfood.ProductId);
-    if(index !== -1){
-      this.foods[index] = updatedfood;
-    }
-    return of(this.foods);
+  addFood(newFood : FoodProduction) : Observable<FoodProduction>{
+    newFood.ProductId = this.generateNewID();
+    return this.http.post<FoodProduction>(this.apiUrl, newFood).pipe(catchError(this.handleError));
+  }
+
+  updateFood(newFood :FoodProduction) : Observable<FoodProduction | undefined>{
+    const url = `${this.apiUrl}/${newFood.ProductId}`;
+    return this.http.put<FoodProduction>(url, newFood).pipe(catchError(this.handleError));
 
   }
 
-  deleteFood(foodId: number): Observable<FoodProduction[]>{
-    this.foods = this.foods.filter(Food => Food.ProductId !== foodId);
-    return of(this.foods);
+  deleteFood(foodId: number): Observable<{}>{
+    const url = `${this.apiUrl}/${foodId}`;
+    return this.http.delete(url).pipe(catchError(this.handleError));
   }
 
-  getFoodById(foodId:number):Observable<FoodProduction | undefined>{
-    const varities = this.foods.find(Food => Food.ProductId === foodId);
-    return of(varities);
-  }
   generateNewID():number{
     return this.foods.length > 0 ? Math.max(...this.foods.map(food => food.ProductId)) + 1 : 1;
+  }
+
+  private handleError(error:HttpErrorResponse){
+    console.error('API error:', error);
+    return throwError(() => new Error('Server error, please try again.'));
   }
 }
