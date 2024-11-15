@@ -57,7 +57,8 @@ export class FoodListComponent implements OnInit{
 */
   onDelete(ProductId: number){
     this.foodService.deleteFood(ProductId).subscribe({
-      next:(updateFoodList:FoodProduction[])=>{
+      next:(updateFoodList:any)=>{
+
         this.foodList=updateFoodList;
         this.error=null;
       },

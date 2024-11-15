@@ -4,12 +4,14 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {ActivatedRoute, Router} from "@angular/router";
 import {FoodService} from "../services/food.service";
 import {FoodProduction} from "../shared/models/food-production";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgIf
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'
@@ -17,7 +19,7 @@ import {FoodProduction} from "../shared/models/food-production";
 export class ModifyListItemComponent implements OnInit{
   foodForm:FormGroup;
   food:FoodProduction | undefined;
-  error:string|null = null;
+
 
   constructor(
     private fb:FormBuilder,
@@ -42,10 +44,6 @@ export class ModifyListItemComponent implements OnInit{
           if(food){
             this.foodForm.patchValue(food);
           }
-        },
-        error:err=>{
-          this.error='Error fetching food';
-          console.error('Error fetching food:' ,err);
         }
       })
     }

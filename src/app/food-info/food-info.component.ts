@@ -17,7 +17,6 @@ export class FoodInfoComponent  implements OnInit{
   food:FoodProduction | undefined;
   foodList:FoodProduction[]=[];
   currentIndex:number = 0;
-  error:String|null=null;
   constructor(
     private route:ActivatedRoute,
     private foodService:FoodService
@@ -28,7 +27,6 @@ export class FoodInfoComponent  implements OnInit{
     this.foodService.getFoods().subscribe({
       next:(foods:FoodProduction[])=>{
         this.foodList = foods;
-        this.error = null;
 
         this.route.paramMap.subscribe(params =>{
           const id = Number(params.get('id'));
@@ -37,10 +35,6 @@ export class FoodInfoComponent  implements OnInit{
             this.food = this.foodList[this.currentIndex];
           }
         });
-      },
-      error:(err)=>{
-        this.error = 'Error fetching food';
-        console.error('Error fetching food:', err);
       }
     });
   }
