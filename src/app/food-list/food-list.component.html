@@ -17,7 +17,7 @@
       <td>{{food.ProductId}}</td>
       <td>{{food.Brand | lowercase}}</td>
       <td>{{food.ItemName | uppercase}}</td>
-      <td>{{food.ExpiryDate}}</td>
+      <td>{{food.ExpiryDate | daysToExpiry}}</td>
       <td>{{food.Barcode}}</td>
       <td>{{food.Price | currency: 'CAD': "symbol-narrow"}}</td>
       <td><img ngSrc="../../Images" alt="{{food.ItemName}}" width="50" height="50"/> </td>

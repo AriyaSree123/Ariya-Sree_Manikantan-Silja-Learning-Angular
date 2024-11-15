@@ -4,6 +4,7 @@ import {FoodInfoComponent} from "../food-info/food-info.component";
 import {CurrencyPipe, LowerCasePipe, NgForOf, NgIf, NgOptimizedImage, UpperCasePipe} from "@angular/common";
 import {FoodService} from "../services/food.service";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
+import {DaysToExpiryPipe} from "../pipes/days-to-expiry.pipe";
 
 
 
@@ -18,7 +19,8 @@ import {ActivatedRoute, Router, RouterLink} from "@angular/router";
     NgIf,
     LowerCasePipe,
     UpperCasePipe,
-    CurrencyPipe
+    CurrencyPipe,
+    DaysToExpiryPipe
   ],
   templateUrl: './food-list.component.html',
   styleUrl: './food-list.component.css'
