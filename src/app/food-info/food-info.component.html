@@ -1,13 +1,14 @@
 <div *ngIf="food" class="food-info-container">
 
   <h2>Food Info</h2>
-  <p><strong> ProductName: {{food.ItemName}}</strong>
+  <p><strong> ProductName: {{food.ItemName | uppercase}}</strong>
     <img [src] ="food.image" width ="50" height="50" alt = "bottle">
   </p>
   <p><strong> ProductID: </strong>{{food.ProductId}}</p>
-  <p><strong> Brand: </strong>{{food.Brand}}</p>
+  <p><strong> Brand: </strong>{{food.Brand | lowercase}}</p>
   <p><strong> ExpiryDate: </strong>{{food.ExpiryDate}}</p>
   <p><strong> Barcode: </strong>{{food.Barcode}}</p>
+  <p><strong> Price: </strong>{{food.Price | currency: 'CAD': "symbol-narrow"}}</p>
 
 </div>
 

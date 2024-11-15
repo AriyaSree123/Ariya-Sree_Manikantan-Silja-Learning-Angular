@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FoodProduction} from "../shared/models/food-production";
 import {FoodInfoComponent} from "../food-info/food-info.component";
-import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
+import {CurrencyPipe, LowerCasePipe, NgForOf, NgIf, NgOptimizedImage, UpperCasePipe} from "@angular/common";
 import {FoodService} from "../services/food.service";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 
@@ -15,7 +15,10 @@ import {ActivatedRoute, Router, RouterLink} from "@angular/router";
     NgForOf,
     RouterLink,
     NgOptimizedImage,
-    NgIf
+    NgIf,
+    LowerCasePipe,
+    UpperCasePipe,
+    CurrencyPipe
   ],
   templateUrl: './food-list.component.html',
   styleUrl: './food-list.component.css'

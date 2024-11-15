@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FoodProduction} from "../shared/models/food-production";
-import {NgIf} from "@angular/common";
+import {CurrencyPipe, LowerCasePipe, NgIf, UpperCasePipe} from "@angular/common";
 import {ActivatedRoute} from "@angular/router";
 import {FoodService} from "../services/food.service";
 
@@ -8,7 +8,10 @@ import {FoodService} from "../services/food.service";
   selector: 'app-food-info',
   standalone: true,
   imports: [
-    NgIf
+    NgIf,
+    LowerCasePipe,
+    UpperCasePipe,
+    CurrencyPipe
   ],
   templateUrl: './food-info.component.html',
   styleUrl: './food-info.component.css'

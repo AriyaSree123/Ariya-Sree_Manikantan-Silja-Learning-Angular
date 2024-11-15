@@ -8,16 +8,18 @@
       <th>ItemName</th>
       <th>ExpiryDate</th>
       <th>Barcode</th>
+      <th>Price</th>
       <th>image</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let food of foodList" [routerLink]="['/foods',food.ProductId]">
       <td>{{food.ProductId}}</td>
-      <td>{{food.Brand}}</td>
-      <td>{{food.ItemName}}</td>
+      <td>{{food.Brand | lowercase}}</td>
+      <td>{{food.ItemName | uppercase}}</td>
       <td>{{food.ExpiryDate}}</td>
       <td>{{food.Barcode}}</td>
+      <td>{{food.Price | currency: 'CAD': "symbol-narrow"}}</td>
       <td><img ngSrc="../../Images" alt="{{food.ItemName}}" width="50" height="50"/> </td>
       <td>
         <button (click)="onEdit(food.ProductId)">Edit</button>
