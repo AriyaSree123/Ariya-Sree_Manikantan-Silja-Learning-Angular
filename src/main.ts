@@ -10,9 +10,15 @@ import {PageNotFoundComponent} from "./app/page-not-found/page-not-found.compone
 const routes: Routes =[
   {path:'', redirectTo: '/food', pathMatch: "full"},
   {path:'food', component: FoodListComponent},
-  {path:'food/:id', component: FoodInfoComponent},
-  {path:'modify-list-item', component: ModifyListItemComponent},
-  {path:'**', component: PageNotFoundComponent}
+  {path:'food/:id',
+    loadComponent:() =>
+      import('./app/food-info/food-info.component').then(m => m.FoodInfoComponent) },
+  {path:'modify-list-item',
+    loadComponent: () =>
+      import('./app/modify-list-item/modify-list-item.component').then(m => m.ModifyListItemComponent) },
+  {path:'**',
+    loadComponent: () =>
+      import('./app/page-not-found/page-not-found.component').then(m => m.PageNotFoundComponent) },
 ];
 
 bootstrapApplication(AppComponent, {
