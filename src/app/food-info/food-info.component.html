@@ -1,4 +1,4 @@
-<div *ngIf="food" class="food-info-container" [appHoverHighlight]="'red'">
+<div *ngIf="food" class="food-info-container" [appHoverHighlight]="'red'" [appHighlightOnFocus]="'green'">
 
   <h2>Food Info</h2>
   <p><strong> ProductName: {{food.ItemName | uppercase}}</strong>

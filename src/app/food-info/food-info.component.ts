@@ -4,6 +4,7 @@ import {CurrencyPipe, LowerCasePipe, NgIf, UpperCasePipe} from "@angular/common"
 import {ActivatedRoute} from "@angular/router";
 import {FoodService} from "../services/food.service";
 import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
+import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
 
 @Component({
   selector: 'app-food-info',
@@ -13,7 +14,8 @@ import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
     LowerCasePipe,
     UpperCasePipe,
     CurrencyPipe,
-    HoverHighlightDirective
+    HoverHighlightDirective,
+    HighlightOnFocusDirective
   ],
   templateUrl: './food-info.component.html',
   styleUrl: './food-info.component.css'

@@ -6,6 +6,7 @@ import {FoodService} from "../services/food.service";
 import {Router, RouterLink} from "@angular/router";
 import {DaysToExpiryPipe} from "../pipes/days-to-expiry.pipe";
 import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
+import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
 
 
 
@@ -22,7 +23,8 @@ import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
     UpperCasePipe,
     CurrencyPipe,
     DaysToExpiryPipe,
-    HoverHighlightDirective
+    HoverHighlightDirective,
+    HighlightOnFocusDirective
   ],
   templateUrl: './food-list.component.html',
   styleUrl: './food-list.component.css'
