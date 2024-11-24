@@ -1,8 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FoodProduction} from "../shared/models/food-production";
 import {CurrencyPipe, LowerCasePipe, NgIf, UpperCasePipe} from "@angular/common";
 import {ActivatedRoute} from "@angular/router";
 import {FoodService} from "../services/food.service";
+import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 
 @Component({
   selector: 'app-food-info',
@@ -11,7 +12,8 @@ import {FoodService} from "../services/food.service";
     NgIf,
     LowerCasePipe,
     UpperCasePipe,
-    CurrencyPipe
+    CurrencyPipe,
+    HoverHighlightDirective
   ],
   templateUrl: './food-info.component.html',
   styleUrl: './food-info.component.css'

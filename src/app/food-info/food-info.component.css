@@ -38,8 +38,8 @@
   font-size: 1.1em;
 }
 
-.food-detail:hover {
+/*.food-detail:hover {
   background-color: rgba(255, 255, 255, 0.5);
   transform: scale(1.05);
   transition: 0.3s;
-}
+}*/

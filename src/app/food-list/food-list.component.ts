@@ -1,10 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FoodProduction} from "../shared/models/food-production";
 import {FoodInfoComponent} from "../food-info/food-info.component";
 import {CurrencyPipe, LowerCasePipe, NgForOf, NgIf, NgOptimizedImage, UpperCasePipe} from "@angular/common";
 import {FoodService} from "../services/food.service";
-import {ActivatedRoute, Router, RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {DaysToExpiryPipe} from "../pipes/days-to-expiry.pipe";
+import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 
 
 
@@ -20,7 +21,8 @@ import {DaysToExpiryPipe} from "../pipes/days-to-expiry.pipe";
     LowerCasePipe,
     UpperCasePipe,
     CurrencyPipe,
-    DaysToExpiryPipe
+    DaysToExpiryPipe,
+    HoverHighlightDirective
   ],
   templateUrl: './food-list.component.html',
   styleUrl: './food-list.component.css'
