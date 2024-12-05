@@ -8,6 +8,7 @@ import {NgIf} from "@angular/common";
 import {MatFormField, MatInput, MatLabel} from "@angular/material/input";
 import {MatButton} from "@angular/material/button";
 import {MatPaginator} from "@angular/material/paginator";
+import {MatTooltip} from "@angular/material/tooltip";
 
 @Component({
   selector: 'app-modify-list-item',
@@ -19,7 +20,8 @@ import {MatPaginator} from "@angular/material/paginator";
     MatFormField,
     MatLabel,
     MatButton,
-    MatPaginator
+    MatPaginator,
+    MatTooltip
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'

@@ -6,12 +6,14 @@ import {FoodList} from "./shared/models/dataMock-food";
 import {FoodInfoComponent} from "./food-info/food-info.component";
 import {FoodService} from "./services/food.service";
 import {NgForOf} from "@angular/common";
+import {MatToolbar} from "@angular/material/toolbar";
+import {MatButton} from "@angular/material/button";
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FoodListComponent, FoodInfoComponent, NgForOf, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, FoodListComponent, FoodInfoComponent, NgForOf, RouterLink, RouterLinkActive, MatToolbar, MatButton],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
