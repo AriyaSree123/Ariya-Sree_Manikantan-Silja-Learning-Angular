@@ -1,33 +1,41 @@
-<form [formGroup]="foodForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="foodForm" (ngSubmit)="onSubmit()" class ="mat-form">
   <!-- ID Field -->
-  <div class="form-group">
-    <label for="ProductID">ID</label>
-    <input type="number" id="ProductID" formControlName="ProductID" />
-  </div>
+  <mat-form-field appearance="outline" class="form-field" disabled>
+    <mat-label>ID</mat-label>
+    <input matInput type="number"  formControlName="ProductID" />
+  </mat-form-field>
 
-  <div class="form-group">
-    <label for="Brand">Brand</label>
-    <input type="text" id="Brand" formControlName="Brand" />
-  </div>
+  <mat-form-field appearance="outline" class="form-field" disabled>
+    <mat-label>Brand</mat-label>
+    <input matInput type="text"  formControlName="Brand" />
+  </mat-form-field>
 
-  <div class="form-group">
-    <label for="ItemName">Name</label>
-    <input type="text" id="ItemName" formControlName="ItemName" />
-  </div>
-  <div class="form-group">
-    <label for="ExpiryDate">Expiry Date</label>
-    <input type="text" id="ExpiryDate" formControlName="ExpiryDate" />
-  </div>
+  <mat-form-field appearance="outline" class="form-field" disabled>
+    <mat-label>Name</mat-label>
+    <input matInput type="text"  formControlName="ItemName" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="form-field" disabled>
+    <mat-label>Expiry Date</mat-label>
+    <input matInput type="text"  formControlName="ExpiryDate" />
+  </mat-form-field>
 
 
-  <div class="form-group">
-    <label for="Barcode">Barcode</label>
-      <input type="text" id="Barcode" formControlName="Barcode"  />
-    </div>
+  <mat-form-field appearance="outline" class="form-field" disabled>
+    <mat-label>Barcode</mat-label>
+    <input matInput type="text"  formControlName="Barcode"  />
+  </mat-form-field>
 
   <!-- Submit Button (Add or Update) -->
-  <button type="submit">Submit</button>
-  <button type="submit">Add</button>
+  <div class="button-group">
+
+  <button mat-raised-button color="primary" type="submit">Submit</button>
+  <button mat-raised-button color="primary" type="submit">Add</button>
+  <button mat-button type="button" (click)="navigateToStudentList()">Back to List</button>
+
+  </div>
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[5,10,25,100]" showFirstLastButtons></mat-paginator>
+
 
 </form>
 

@@ -1,14 +1,32 @@
 <div *ngIf="food" class="food-info-container" [appHoverHighlight]="'red'" [appHighlightOnFocus]="'green'">
 
-  <h2>Food Info</h2>
-  <p><strong> ProductName: {{food.ItemName | uppercase}}</strong>
-    <img [src] ="food.image" width ="50" height="50" alt = "bottle">
-  </p>
-  <p><strong> ProductID: </strong>{{food.ProductId}}</p>
-  <p><strong> Brand: </strong>{{food.Brand | lowercase}}</p>
-  <p><strong> ExpiryDate: </strong>{{food.ExpiryDate}}</p>
-  <p><strong> Barcode: </strong>{{food.Barcode}}</p>
-  <p><strong> Price: </strong>{{food.Price | currency: 'CAD': "symbol-narrow"}}</p>
+  <mat-card class="food-card">
+      <mat-card-header>
+        <mat-card-title>Food Details</mat-card-title>
+      </mat-card-header>
+    <mat-card-content>
+      <p><strong> ProductName: {{food.ItemName | uppercase}}</strong>
+      <img [src] ="food.image" width ="50" height="50" alt = "bottle">
+      </p>
+      <p><strong> ProductID: </strong>{{food.ProductId}}</p>
+      <p><strong> Brand: </strong>{{food.Brand | lowercase}}</p>
+      <p><strong> ExpiryDate: </strong>{{food.ExpiryDate}}</p>
+      <p><strong> Barcode: </strong>{{food.Barcode}}</p>
+      <p><strong> Price: </strong>{{food.Price | currency: 'CAD': "symbol-narrow"}}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="navigation-buttons">
+    <button mat-raised-button color="primary" (click)="goBackward()" [disabled]="currentIndex === 0">
+      <mat-icon>arrow_back</mat-icon> Previous
+    </button>
+    <button mat-raised-button color="primary" (click)="goForward()" [disabled]="currentIndex === foodList.length - 1">
+      Next <mat-icon>arrow_forward</mat-icon>
+    </button>
+    <button mat-raised-button color="accent" (click)="goBack()">
+      Back to Student List
+    </button>
+  </div>
 
 </div>
 

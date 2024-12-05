@@ -1,24 +1,35 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FoodList} from "../shared/models/dataMock-food";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FoodService} from "../services/food.service";
 import {FoodProduction} from "../shared/models/food-production";
 import {NgIf} from "@angular/common";
+import {MatFormField, MatInput, MatLabel} from "@angular/material/input";
+import {MatButton} from "@angular/material/button";
+import {MatPaginator} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    MatInput,
+    MatFormField,
+    MatLabel,
+    MatButton,
+    MatPaginator
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'
 })
 export class ModifyListItemComponent implements OnInit{
+  foodList: FoodProduction[] = FoodList;
   foodForm:FormGroup;
   food:FoodProduction | undefined;
+
+  @ViewChild(MatPaginator)paginator:MatPaginator |null=null;
 
 
   constructor(
@@ -59,6 +70,10 @@ export class ModifyListItemComponent implements OnInit{
         this.foodService.addFood(food).subscribe(()=>this.router.navigate(['/foods']))
       }
     }
+  }
+
+  navigateToStudentList(): void {
+    this.router.navigate(['/students']);
   }
 
 
